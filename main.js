@@ -1,6 +1,8 @@
 const dogContainer = document.getElementById('dog-container');
 const newDogBtn = document.getElementById('new-dog-btn');
+const themeBtn = document.getElementById('theme-btn');
 
+// 강아지 사진 가져오기
 async function fetchRandomDog() {
   try {
     dogContainer.innerHTML = '<p>강아지 사진을 불러오는 중...</p>';
@@ -18,8 +20,26 @@ async function fetchRandomDog() {
   }
 }
 
-// 페이지 로드 시 사진 불러오기
-window.addEventListener('load', fetchRandomDog);
+// 테마 전환 기능
+function toggleTheme() {
+  const currentTheme = document.documentElement.getAttribute('data-theme');
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  
+  document.documentElement.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+}
 
-// 버튼 클릭 시 사진 불러오기
+// 저장된 테마 불러오기
+function loadTheme() {
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+}
+
+// 이벤트 리스너 등록
+window.addEventListener('load', () => {
+  loadTheme();
+  fetchRandomDog();
+});
+
 newDogBtn.addEventListener('click', fetchRandomDog);
+themeBtn.addEventListener('click', toggleTheme);

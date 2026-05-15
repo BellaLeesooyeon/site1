@@ -1,25 +1,62 @@
+:root {
+  --bg-color: #f0f2f5;
+  --container-bg: #ffffff;
+  --text-color: #333333;
+  --button-bg: #4CAF50;
+  --button-hover: #45a049;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --img-placeholder: #eee;
+}
+
+[data-theme="dark"] {
+  --bg-color: #18191a;
+  --container-bg: #242526;
+  --text-color: #e4e6eb;
+  --button-bg: #2e7d32;
+  --button-hover: #1b5e20;
+  --card-shadow: rgba(0, 0, 0, 0.3);
+  --img-placeholder: #3a3b3c;
+}
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f0f2f5;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   margin: 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+#theme-btn {
+  background-color: var(--container-bg);
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+  padding: 8px 15px;
+  font-size: 0.9rem;
 }
 
 .container {
   text-align: center;
-  background-color: white;
+  background-color: var(--container-bg);
   padding: 2rem;
   border-radius: 15px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px var(--card-shadow);
   max-width: 500px;
   width: 90%;
+  transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 h1 {
-  color: #333;
   margin-bottom: 1.5rem;
 }
 
@@ -31,8 +68,9 @@ h1 {
   align-items: center;
   overflow: hidden;
   border-radius: 10px;
-  background-color: #eee;
+  background-color: var(--img-placeholder);
   margin-bottom: 1.5rem;
+  transition: background-color 0.3s;
 }
 
 #dog-container img {
@@ -41,17 +79,27 @@ h1 {
   object-fit: cover;
 }
 
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
 button {
-  background-color: #4CAF50;
+  background-color: var(--button-bg);
   color: white;
   border: none;
   padding: 10px 20px;
   font-size: 1rem;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.1s;
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: var(--button-hover);
+}
+
+button:active {
+  transform: scale(0.98);
 }
