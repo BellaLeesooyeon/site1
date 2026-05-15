@@ -6,6 +6,9 @@
   --button-hover: #45a049;
   --card-shadow: rgba(0, 0, 0, 0.1);
   --img-placeholder: #eee;
+  --input-bg: #ffffff;
+  --input-border: #cccccc;
+  --divider-color: #eeeeee;
 }
 
 [data-theme="dark"] {
@@ -16,6 +19,9 @@
   --button-hover: #1b5e20;
   --card-shadow: rgba(0, 0, 0, 0.3);
   --img-placeholder: #3a3b3c;
+  --input-bg: #3a3b3c;
+  --input-border: #4a4b4c;
+  --divider-color: #3a3b3c;
 }
 
 body {
@@ -28,6 +34,7 @@ body {
   align-items: center;
   min-height: 100vh;
   margin: 0;
+  padding: 40px 0;
   transition: background-color 0.3s, color 0.3s;
 }
 
@@ -43,12 +50,14 @@ body {
   border: 1px solid var(--text-color);
   padding: 8px 15px;
   font-size: 0.9rem;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .container {
   text-align: center;
   background-color: var(--container-bg);
-  padding: 2rem;
+  padding: 2.5rem;
   border-radius: 15px;
   box-shadow: 0 4px 6px var(--card-shadow);
   max-width: 500px;
@@ -56,7 +65,7 @@ body {
   transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-h1 {
+h1, h2 {
   margin-bottom: 1.5rem;
 }
 
@@ -79,6 +88,69 @@ h1 {
   object-fit: cover;
 }
 
+.divider {
+  border: none;
+  border-top: 1px solid var(--divider-color);
+  margin: 2.5rem 0;
+}
+
+.partnership-section {
+  text-align: left;
+}
+
+.partnership-section h2 {
+  text-align: center;
+}
+
+.partnership-section p {
+  text-align: center;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+}
+
+.inquiry-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.form-group input, .form-group textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid var(--input-border);
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  font-size: 1rem;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+  outline: none;
+  border-color: var(--button-bg);
+}
+
+.submit-btn {
+  margin-top: 1rem;
+  width: 100%;
+}
+
 .button-group {
   display: flex;
   justify-content: center;
@@ -89,7 +161,7 @@ button {
   background-color: var(--button-bg);
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 12px 20px;
   font-size: 1rem;
   border-radius: 5px;
   cursor: pointer;
