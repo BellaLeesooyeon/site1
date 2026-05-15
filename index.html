@@ -1,14 +1,19 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+  <title>랜덤 강아지 사진</title>
+  <link href="style.css" rel="stylesheet">
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+  <div class="container">
+    <h1>오늘의 강아지 🐶</h1>
+    <div id="dog-container">
+      <p>강아지 사진을 불러오는 중...</p>
+    </div>
+    <button id="new-dog-btn">다른 강아지 보기</button>
+  </div>
+  <script src="main.js"></script>
 </body>
 </html>
